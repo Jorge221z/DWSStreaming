@@ -25,7 +25,7 @@ class Modelo extends Model
 
     public function director()
     {
-        return $this->belongsTo(Model_DIRECTOR::class, 'director_id');
+        return $this->belongsTo(Model_DIRECTOR::class, 'director_id', 'id');
     }
 
     public function elenco()

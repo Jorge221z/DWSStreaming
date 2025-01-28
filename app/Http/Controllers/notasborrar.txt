@@ -1,17 +1,17 @@
 *Cosas pendientes de hacer en el laravel
 
--Codigo js del formularioPelis para que si se cambia la opcion se borren las selecciones realizadas en la parte contraria//
+
+
+me queda poner en la vista elenco que se vea en que pelis sale cada actor y
+en la vista directores que pelis ha dirigido cada uno
 (HECHO)
-
-
--Parte del helper
-
 
 
 
 *Ideas de implementación:
 
 -icono con favicon.icon (HECHO)
+
 
 -login de admin relacionado con la bd(phpMyAdmin)   (HECHO)
 

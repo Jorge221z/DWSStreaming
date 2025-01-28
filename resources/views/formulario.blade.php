@@ -28,17 +28,17 @@
     <h2>Acceso como administrador</h2>
     <p>Introduzca sus datos</p>
 
-    <form action="{{ route('validar') }}" method="POST">
+    <form action="{{ route('login') }}" method="POST">
         @csrf
-        <label for="usuario">Usuario:</label>
-        <input type="text" id="usuario" name="usuario" value="{{ old('usuario') }}" required>
-        @error('usuario')
+        <label for="name">Usuario:</label>
+        <input type="text" id="name" name="name" value="{{ old('name') }}" required>
+        @error('name')
             <div style="color: red; font-size:21px; font-weight:bold;">{{ $message }}</div>
         @enderror
         <br>
-        <label for="contraseña">Contraseña:</label>
+        <label for="password">Contraseña:</label>
         <div style="position: relative; display: inline-block; width: 100%;">
-            <input type="password" id="contraseña" name="contraseña" required
+            <input type="password" id="password" name="password" required
                 style="padding-right: 40px; width: calc(100% - 40px);">
             <span id="togglePassword"
                 style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%); cursor: pointer;">
@@ -59,7 +59,7 @@
 
 <script>
     const togglePassword = document.getElementById('togglePassword');
-    const passwordInput = document.getElementById('contraseña');
+    const passwordInput = document.getElementById('password');
     const eyeIcon = document.getElementById('eyeIcon');
 
     togglePassword.addEventListener('click', () => {

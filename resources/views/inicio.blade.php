@@ -27,7 +27,16 @@
 @endif
 
 
-
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        if (!localStorage.getItem('firstVisit')) {
+            localStorage.setItem('firstVisit', 'true');
+            document.cookie.split(";").forEach(function(c) {
+                document.cookie = c.trim().split('=')[0] + "=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/";
+            });
+        }
+    });
+</script>
 </body>
-
 </html>
+

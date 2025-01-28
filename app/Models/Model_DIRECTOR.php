@@ -16,7 +16,7 @@ class Model_DIRECTOR extends Model
 
     public function peliculas()
     {
-        return $this->hasMany(Modelo::class);
+        return $this->hasMany(Modelo::class, 'director_id', 'id');
     }
 
 

@@ -39,15 +39,15 @@
         </tbody>
     </table>
 
-    @if (session('success'))
+    @if (Auth::guard('sanctum')->check())
     <div style="color: green; text-align: center; font-size: 18px; font-weight: bold;">
         {{ session('success') }}
     </div>
-@endif
+    @endif
 
     <br>
     <br>
-    @if(session('isAdmin'))
+    @if(Auth::guard('sanctum')->check()) <!--Metodo de autenticacion por tokens con sanctum-->
     <a style="font-weight: bold; color:forestgreen; font-size:22px; ">Admin confirmado: </a><br>
     <a class="bot" href="{{ route('formularioPelis') }}">Añadir Película</a>
     <a class="bot" href="{{ route('formularioDirectores') }}">Añadir Director</a>

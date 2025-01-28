@@ -11,7 +11,7 @@ class Model_ELENCO extends Model
 
     public function peliculas()
     {
-        return $this->belongsToMany(Modelo::class, 'elenco_peliculas', 'elenco_id', 'pelicula_id');
+        return $this->belongsToMany(Modelo::class, 'elenco_peliculas', 'elenco_id', 'peliculas_id');
     }
 
     public $timestamps = false;
