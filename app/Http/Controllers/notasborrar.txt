@@ -16,3 +16,5 @@ en la vista directores que pelis ha dirigido cada uno
 -login de admin relacionado con la bd(phpMyAdmin)   (HECHO)
 
 -modo oscuro/claro
+
+-borrar pelis

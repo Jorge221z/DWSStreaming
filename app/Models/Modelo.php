@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Cohensive\OEmbed\Facades\OEmbed;
 
 class Modelo extends Model
 {
@@ -13,6 +14,7 @@ class Modelo extends Model
         'director',
         'tipo',
         'edad',
+        'trailer_url',
         'isrc_id',
         'director_id',
     ];
@@ -31,6 +33,16 @@ class Modelo extends Model
     public function elenco()
     {
         return $this->belongsToMany(Model_ELENCO::class, 'elenco_peliculas', 'peliculas_id', 'elenco_id');
+    }
+
+
+    public function getVideoAttribute($value) //funcion que obtiene el video de la url(Accessor)//
+    {
+        $embed = OEmbed::get($this->trailer_url);
+
+        if($embed) {
+            return $embed->html(['width' => 330, 'height' => 185]);
+        }
     }
 
 

@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Models\Modelo;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use App\Rules\OEmbedUrl;
 
 class Controlador extends Controller
 {
@@ -56,6 +57,7 @@ class Controlador extends Controller
             'titulo' => "required|string|max:255",
             'tipo' => "required|string|max:255",
             'edad' => "required|string|max:255",
+            'trailer_url' => ['nullable', new OEmbedUrl(['youtube'])], //validacion de regla creadd(OEmbedUrl.php) //
             'isrc' => "required|string|max:255",
             'director_id' => "string|max:255", //quitamos el required para el caso en el que se relaciones actores y no un director con la pelicula que se va a agregar//
         ]);
@@ -65,6 +67,7 @@ class Controlador extends Controller
             'titulo' => $request->titulo,
             'tipo' => $request->tipo,
             'edad' => $request->edad,
+            'trailer_url' => $request->trailer_url,
         ]);
 
 

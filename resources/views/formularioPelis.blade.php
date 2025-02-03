@@ -25,6 +25,10 @@
         <label for="isrc">ISRC:</label>
         <input type="text" id="isrc" name="isrc" required>
         <br>
+        <label for="trailer_url">URL del Tráiler (Youtube)</label>
+        <input type="url" id="trailer_url" name="trailer_url" placeholder="https://www.youtube.com/..." required>
+        <br>
+
 
         <!-- Opción para seleccionar director -->
         <label for="director_id">Seleccionar director:</label>
