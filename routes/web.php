@@ -44,7 +44,7 @@ Route::get('/test-relation', [Controlador::class, 'testRelation']);//para probar
 //rutas para cambio de idioma//
 Route::get('lang/{lang}', function ($lang) {
 
-    if (in_array($lang, ['en', 'es'])) {
+    if (in_array($lang, ['es', 'en'])) {
         session(['locale' => $lang]);
     }
     return redirect()->back();
