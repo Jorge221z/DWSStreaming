@@ -25,18 +25,18 @@
 </head>
 
 <body>
-    <h2>Acceso como administrador</h2>
-    <p>Introduzca sus datos</p>
+    <h2>{{ __('messages.texto1') }}</h2>
+    <p>{{ __('messages.texto2') }}</p>
 
     <form action="{{ route('login') }}" method="POST">
         @csrf
-        <label for="name">Usuario:</label>
+        <label for="name">{{ __('messages.user') }}</label>
         <input type="text" id="name" name="name" value="{{ old('name') }}" required>
         @error('name')
             <div style="color: red; font-size:21px; font-weight:bold;">{{ $message }}</div>
         @enderror
         <br>
-        <label for="password">Contraseña:</label>
+        <label for="password">{{ __('messages.password') }}:</label>
         <div style="position: relative; display: inline-block; width: 100%;">
             <input type="password" id="password" name="password" required
                 style="padding-right: 40px; width: calc(100% - 40px);">
@@ -51,7 +51,7 @@
         @enderror
         <br>
         <br>
-        <button class="bot" type="submit">Iniciar sesión</button>
+        <button class="bot" type="submit">{{ __('messages.log_in') }}</button>
     </form>
 </body>
 

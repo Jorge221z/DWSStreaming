@@ -18,3 +18,5 @@ en la vista directores que pelis ha dirigido cada uno
 -modo oscuro/claro
 
 -borrar pelis
+
+-tradcir entero

@@ -15,7 +15,7 @@ return Application::configure(basePath: dirname(__DIR__))
             \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
             \Illuminate\Session\Middleware\StartSession::class,
             \App\Http\Middleware\SanctumWebAuth::class, // Token que se inyecta en todas las rutas con middleware//
-          //  \App\Http\Middleware\AttachSanctumCookie::class,
+            \App\Http\Middleware\LanguageMiddleware::class, // Agregado para manejar el idioma
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ]);

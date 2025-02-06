@@ -1,46 +1,253 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo global para el cuerpo */
 body {
-    background-color: rgb(143, 64, 216);
+    font-family: 'Lato', sans-serif;
+    background: #f4f4f9; /* Fondo claro */
+    color: #333333;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
 }
 
+/* Fondo con textura sutil */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        45deg,
+        rgba(75, 178, 219, 0.1),
+        rgba(117, 209, 245, 0.1) 10px,
+        transparent 10px,
+        transparent 20px
+    );
+    z-index: -1;
+}
+
+/* Animación de fondo */
+body::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 10%, transparent 10.01%);
+    background-size: 50px 50px;
+    animation: move-background 10s linear infinite;
+    z-index: -1;
+}
+
+@keyframes move-background {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(20px, 20px);
+    }
+}
+
+/* Estilo para el título principal */
 h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #2c3e50;
+    margin-bottom: 20px;
     text-align: center;
-    margin-top: 0%;
-    padding-top: 0%;
-    font-weight: bold;
-    font-size: 38px;
-    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-        "Lucida Sans", Arial, sans-serif;
-    font-style: italic;
+    position: relative;
+    animation: pulse-title 3s ease-in-out infinite;
 }
 
+h1::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    width: 60px;
+    height: 3px;
+    background: #3498db;
+    border-radius: 2px;
+    transform: translateX(-50%);
+    animation: underline-grow 1s ease-in-out;
+}
+
+@keyframes pulse-title {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes underline-grow {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 60px;
+    }
+}
+
+/* Estilo para el párrafo */
 p {
-    text-align: center;
-    font-size: x-large;
-    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-        "Lucida Sans", Arial, sans-serif;
+    font-size: 1.2rem;
+    color: #7f8c8d;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeInDown 1.2s ease-in-out 0.5s forwards;
+    margin-bottom: 10px;
 }
 
-a {
-    font-size: 22px;
-    text-decoration: none;
-    color: black;
-    display:inline;
-    margin-top: 15px;
-    margin-right: 80px;
-    margin-right: 80px;
-    border: 5px solid white;
-    border-radius: 7px;
-    padding: 15px 25px;
-    transition: background-color 0.5s ease;
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
+/* Estilo para los botones */
 nav {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
-
+    gap: 20px;
 }
 
-a:hover {
-    background-color: white;
+nav a.btn {
+    display: inline-block;
+    padding: 15px 35px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #ffffff;
+    background: #3498db; /* Azul suave */
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+nav a.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3);
+    transition: left 0.3s ease;
+    z-index: -1;
+}
+
+nav a.btn:hover {
+    background: #2980b9; /* Azul más oscuro */
+    transform: translateY(-3px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+nav a.btn:hover::before {
+    left: 0;
+}
+
+nav a.btn:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para los errores */
+div[style*="color: red"] {
+    background: #fff3cd; /* Amarillo claro */
+    color: #856404; /* Texto oscuro */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    animation: shake 0.5s ease-in-out;
+    margin: 20px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+div[style*="color: red"]::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 230, 0, 0.3);
+    animation: error-glow 2s infinite;
+    z-index: -1;
+}
+
+@keyframes error-glow {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+div[style*="color: red"] ul {
+    list-style: none;
+}
+
+div[style*="color: red"] li {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+/* Animación para los errores */
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-10px);
+    }
+    50% {
+        transform: translateX(10px);
+    }
+    75% {
+        transform: translateX(-10px);
+    }
+}
+
+/* Diseño responsivo */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+
+    nav a.btn {
+        padding: 12px 25px;
+        font-size: 0.9rem;
+    }
 }

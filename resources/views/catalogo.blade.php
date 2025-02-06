@@ -17,12 +17,12 @@
     <table border="1" style="width: 100%; border-collapse: collapse;">
         <thead>
             <tr>
-                <th>Título</th>
-                <th>Director</th>
-                <th>Tipo</th>
-                <th>Edad Recomendada</th>
-                <th>ISCR</th>
-                <th>Tráiler Yotube</th>
+                <th>{{ __('messages.title') }}</th>
+                <th>{{ __('messages.director') }}</th>
+                <th>{{ __('messages.type') }}</th>
+                <th>{{ __('messages.age') }}</th>
+                <th>{{ __('messages.isrc') }}</th>
+                <th>{{ __('messages.trailer') }}</th>
             </tr>
         </thead>
         <tbody>
@@ -35,7 +35,7 @@
                             {{ $peli[0]->director->nombre }} {{ $peli[0]->director->apellidos }}
                     </td>
                 @else
-                    <em>No especificado</em>
+                    <em>{{ __('messages.not_specified') }}</em>
             @endif
             </td>
             <td>{{ $peli[0]->tipo }}</td>
@@ -46,7 +46,7 @@
                     <!-- Verifica si hay URL -->
                     {!! $peli[0]->video !!} <!-- Usa el accesor de modelo.php(getVideoAttribute) -->
                 @else
-                    <em>Video no disponible</em>
+                    <em>{{ __('messages.video_not_available') }}</em>
                 @endif
             </td>
             </tr>
@@ -54,6 +54,7 @@
 
         </tbody>
     </table>
+
 
     @if (Auth::guard('sanctum')->check())
         <div style="color: green; text-align: center; font-size: 18px; font-weight: bold;">
@@ -65,22 +66,24 @@
     <br>
     @if (Auth::guard('sanctum')->check())
         <!--Metodo de autenticacion por tokens con sanctum-->
-        <a style="font-weight: bold; color:forestgreen; font-size:22px; ">Admin confirmado: </a><br>
-        <a class="bot" href="{{ route('formularioPelis') }}">Añadir Película</a>
-        <a class="bot" href="{{ route('formularioDirectores') }}">Añadir Director</a>
-        <a class="bot" href="{{ route('formularioElenco') }}">Añadir Actor</a>
-        <a class="bot" href="{{ route('logout') }}" style="border: 3px solid black">Cerrar sesión</a>
+        <a style="font-weight: bold; color:forestgreen; font-size:22px; ">{{ __('messages.admin_confirmed') }}: </a><br>
+        <a class="bot" href="{{ route('formularioPelis') }}">{{ __('messages.add_movie') }}</a>
+        <a class="bot" href="{{ route('formularioDirectores') }}">{{ __('messages.add_director') }}</a>
+        <a class="bot" href="{{ route('formularioElenco') }}">{{ __('messages.add_actor') }}</a>
+        <a class="bot" href="{{ route('logout') }}" style="border: 3px solid black">{{ __('messages.logout') }}</a>
     @else
         <a class="bot" class="btn btn-primary" href="{{ route('formulario') }}" role="button"
-            style="border: 3px solid black">Acceso admins</a>
+            style="border: 3px solid black">{{ __('messages.admin_access') }}</a>
     @endif
-    <br><br><br>
+    <br><br>
 
-    <a class="bot" class="btn btn-primary" href="{{ route('catalogoDirectores') }}" role="button">Lista de
-        directores</a><br>
-    <a class="bot" class="btn btn-primary" href="{{ route('catalogoElenco') }}" role="button">Lista de
-        actores</a><br>
-    <a class="bot" class="btn btn-primary" href="{{ route('salir') }}" role="button">Volver a inicio</a>
+    @include('lang')
+
+    <a class="bot" class="btn btn-primary" href="{{ route('catalogoDirectores') }}" role="button">{{ __('messages.list_directors') }}</a><br>
+
+    <a class="bot" class="btn btn-primary" href="{{ route('catalogoElenco') }}" role="button">{{ __('messages.list_actors') }}</a><br>
+
+    <a class="bot" class="btn btn-primary" href="{{ route('salir') }}" role="button">{{ __('messages.back_home') }}</a>
 </body>
 
 </html>

@@ -149,7 +149,9 @@ class Controlador extends Controller
         return redirect()->route('inicio'); //redirigimos a la vista de inicio//
     }
 
-
+    public function documentacion() {
+        return view('documentacion');
+    }
 
 
 

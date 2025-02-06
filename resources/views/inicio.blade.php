@@ -12,7 +12,7 @@
 
 <body>
     <h1>DWS Streaming</h1>
-    <p>Elija una opcion del menu</p>
+    <p>Elija una opcion del menú</p>
 
     @include('nav')
 

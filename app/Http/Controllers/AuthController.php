@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
@@ -27,7 +28,7 @@ class AuthController extends Controller
 
 
         // Intentar autenticar con las credenciales dadas//
-        if ($user && $request->password === $user->password) { //compara la info de la tabla 'users' con los de la request//
+        if ($user && Hash::check($request->password, $user->password)) { //compara la info de la tabla 'users' con los de la request//
             $user->tokens()->delete();
             $token = $user->createToken('auth_token')->plainTextToken;
             return redirect()->route('catalogo')->with('success', 'Acceso correcto')

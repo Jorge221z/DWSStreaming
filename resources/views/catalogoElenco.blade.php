@@ -14,11 +14,11 @@
     <table border="1">
         <thead>
             <tr>
-                <th>Nombre</th>
-                <th>Apellido</th>
-                <th>DNI</th>
-                <th>Tipo</th>
-                <th>Peliculas en las que aparece</th>
+                <th>{{ __('messages.name') }}</th>
+                <th>{{ __('messages.surname') }}</th>
+                <th>{{ __('messages.DNI') }}</th>
+                <th>{{ __('messages.type') }}</th>
+                <th>{{ __('messages.aparitions') }}</th>
             </tr>
         </thead>
         <tbody>
@@ -35,7 +35,7 @@
                                 {{ $pelicula->titulo }}@if (!$loop->last),@endif
                             @endforeach
                         @else
-                            Sin películas registradas
+                        {{ __('messages.without_movies') }}
                         @endif
                     </td>
                 </tr>
@@ -46,16 +46,18 @@
     <br><br>
     @if (Auth::guard('sanctum')->check())
         <!--Metodo de autenticacion por tokens con sanctum-->
-        <a style="font-weight: bold; color:forestgreen; font-size:22px; ">Admin confirmado: </a><br>
-        <a class="bot" class="btn btn-primary" href="{{ route('formularioElenco') }}" role="button">Añadir actor</a>
+        <a style="font-weight: bold; color:forestgreen; font-size:22px; ">{{ __('messages.admin_confirmed') }}: </a><br>
+        <a class="bot" class="btn btn-primary" href="{{ route('formularioElenco') }}" role="button">{{ __('messages.add_actor') }}</a>
     @else
         <a class="bot" class="btn btn-primary" href="{{ route('formulario') }}" role="button"
-            style="border: 3px solid black">Acceso admins</a>
+            style="border: 3px solid black">{{ __('messages.admin_access') }}</a>
     @endif
-    <br><br><br>
+    <br><br>
 
-    <a class="bot" class="btn btn-primary" href="{{ route('salir') }}" role="button">Ir a inicio</a>
-    <a class="bot" class="btn btn-primary" href="{{ route('catalogo') }}" role="button">Ir a catalogo</a>
+    @include('lang')
+
+    <a class="bot" class="btn btn-primary" href="{{ route('salir') }}" role="button">{{ __('messages.back_home') }}</a>
+    <a class="bot" class="btn btn-primary" href="{{ route('catalogo') }}" role="button">{{ __('messages.list_movies') }}</a>
 
 </body>
 

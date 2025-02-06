@@ -3,6 +3,7 @@
 use App\Http\Controllers\Controlador;
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Test;
 
 // ====================== RUTAS PÚBLICAS ======================
 // Accesibles sin autenticación, pero con middleware 'web' forzado (manejo de cookies)
@@ -13,6 +14,7 @@ Route::middleware('web')->group(function () {
     Route::get('catalogo', [Controlador::class, 'catalogo'])->name('catalogo');
     Route::get('catalogoDirectores', [Controlador::class, 'catalogoDirectores'])->name('catalogoDirectores');
     Route::get('catalogoElenco', [Controlador::class, 'catalogoElenco'])->name('catalogoElenco');
+    Route::get('documentacion', [Controlador::class, 'documentacion'])->name('documentacion');
 
     // Login y logout
     Route::get('formulario', [Controlador::class, 'formulario'])->name('formulario');
@@ -38,3 +40,12 @@ Route::middleware(['web', 'auth:sanctum'])->group(function () {
 
 //pruebas especiales(relaciones) //
 Route::get('/test-relation', [Controlador::class, 'testRelation']);//para probar metodos relacionales(one to one)//
+
+//rutas para cambio de idioma//
+Route::get('lang/{lang}', function ($lang) {
+
+    if (in_array($lang, ['en', 'es'])) {
+        session(['locale' => $lang]);
+    }
+    return redirect()->back();
+})->name('lang.switch');

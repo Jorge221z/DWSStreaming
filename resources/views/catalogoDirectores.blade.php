@@ -12,10 +12,10 @@
     <table border="1">
         <thead>
             <tr>
-                <th>Nombre</th>
-                <th>Apellido</th>
-                <th>DNI</th>
-                <th>Peliculas que dirige</th>
+                <th>{{ __('messages.name') }}</th>
+                <th>{{ __('messages.surname') }}</th>
+                <th>{{ __('messages.DNI') }}</th>
+                <th>{{ __('messages.movies_directed') }}</th>
             </tr>
         </thead>
         <tbody>
@@ -41,15 +41,17 @@
 
     <br><br>
     @if(Auth::guard('sanctum')->check()) <!--Metodo de autenticacion por tokens con sanctum-->
-    <a style="font-weight: bold; color:forestgreen; font-size:22px; ">Admin confirmado: </a><br>
-    <a class="bot" href="{{ route('formularioDirectores') }}">Añadir Director</a>
+    <a style="font-weight: bold; color:forestgreen; font-size:22px; ">{{ __('messages.admin_confirmed') }}: </a><br>
+    <a class="bot" href="{{ route('formularioDirectores') }}">{{ __('messages.add_director') }}</a>
     @else
-    <a class="bot" class="btn btn-primary" href="{{ route('formulario') }}" role="button" style="border: 3px solid black">Acceso admins</a>
+    <a class="bot" class="btn btn-primary" href="{{ route('formulario') }}" role="button" style="border: 3px solid black">{{ __('messages.admin_access') }}</a>
     @endif
-    <br><br><br>
+    <br><br>
 
-    <a  class="bot" class="btn btn-primary" href="{{ route('salir') }}" role="button">Ir a inicio</a>
-    <a  class="bot" class="btn btn-primary" href="{{ route('catalogo') }}" role="button">Ir a catalogo</a>
+    @include('lang')
+
+    <a  class="bot" class="btn btn-primary" href="{{ route('salir') }}" role="button">{{ __('messages.back_home') }}</a>
+    <a  class="bot" class="btn btn-primary" href="{{ route('catalogo') }}" role="button">{{ __('messages.list_movies') }}</a>
 
 </body>
 </html>

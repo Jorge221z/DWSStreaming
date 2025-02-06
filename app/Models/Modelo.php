@@ -32,7 +32,7 @@ class Modelo extends Model
 
     public function elenco()
     {
-        return $this->belongsToMany(Model_ELENCO::class, 'elenco_peliculas', 'peliculas_id', 'elenco_id');
+        return $this->belongsToMany(Model_ELENCO::class, 'elenco_peliculas', 'pelicula_id', 'elenco_id');
     }
 
 
