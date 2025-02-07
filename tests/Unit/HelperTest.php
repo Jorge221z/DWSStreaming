@@ -1,4 +1,6 @@
 <?php
+
+namespace Tests\Unit;
 use PHPUnit\Framework\TestCase;
 //Test de el helper(helpers.php) que convierten fechas a otros formatos//
 

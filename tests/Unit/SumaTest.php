@@ -1,4 +1,5 @@
 <?php
+namespace Tests\Unit;
 
 use App\Services\Suma;
 use PHPUnit\Framework\TestCase;
