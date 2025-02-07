@@ -231,7 +231,7 @@ Otras tareas de mantenimiento
 Fork y clonación: Haz fork del repositorio y clónalo localmente.
 (https://github.com/Jorge221z/DWSStreaming.git)
 
-Rama de trabajo: Crea una rama nuevacon un nombre descriptivo.
+Rama de trabajo: Crea una rama nueva con un nombre descriptivo.
 Commits: Realiza commits pequeños y claros, siguiendo los estándares del proyecto.
 Pruebas: Verifica que tu código pase las pruebas y añade mas si es necesario.
 Pull Request: Envía el PR con una descripción concisa de los cambios.
