@@ -43,6 +43,12 @@
         </tbody>
     </table>
 
+    @if (Auth::guard('sanctum')->check())
+        <div style="color: green; text-align: center; font-size: 18px; font-weight: bold;">
+            {{ session('success') }}
+        </div>
+    @endif
+
     <br><br>
     @if (Auth::guard('sanctum')->check())
         <!--Metodo de autenticacion por tokens con sanctum-->

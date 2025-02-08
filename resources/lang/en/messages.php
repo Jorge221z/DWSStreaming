@@ -31,7 +31,7 @@ return [
 
     //vista catalogoElenco.blade.php (reusamos las que podemos)//
     'aparitions' => 'Movies in which he appears',
-    'without_movies' => 'No registered movies',
+    'without_movies' => 'No registered movies yet',
 
     //formulario de login(formulario.blade.php//
     //formulario de login(formulario.blade.php//
@@ -41,5 +41,8 @@ return [
     'password' => 'Password',
     'log_in' => 'Log in',
 
-
+    //mensajes flash de controlador//
+    'movie_added' => 'Movie added successfully',
+    'director_added' => 'Director added successfully',
+    'actor_added' => 'Actor added successfully',
 ];

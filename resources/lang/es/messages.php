@@ -39,4 +39,10 @@ return [
      'user' => 'Usuario',
      'password' => 'Contraseña',
      'log_in' => 'Iniciar sesión',
+
+     //mensajes flash de controlador//
+     'movie_added' => 'Película añadida correctamente',
+     'director_added' => 'Director añadido correctamente',
+     'actor_added' => 'Actor añadido correctamente',
 ];
+

@@ -95,7 +95,7 @@ class Controlador extends Controller
 
 
         // Redirigir al catálogo con un mensaje de éxito
-        return redirect()->route('catalogo')->with('success', 'Película añadida correctamente.');
+        return redirect()->route('catalogo')->with('success', trans('messages.movie_added'));
     }
 
     public function formularioDirectores()
@@ -117,7 +117,7 @@ class Controlador extends Controller
             'dni' => $request->dni,
         ]);
 
-        return redirect()->route('catalogoDirectores')->with('success', 'Director añadido correctamente.');
+        return redirect()->route('catalogoDirectores')->with('success', trans('messages.director_added'));
     }
 
 
@@ -141,7 +141,7 @@ class Controlador extends Controller
             'tipo' => $request->tipo,
         ]);
 
-        return redirect()->route('catalogoElenco')->with('success', 'Actor añadido correctamente.');
+        return redirect()->route('catalogoElenco')->with('success', trans('messages.actor_added'));
     }
 
     public function salir()
